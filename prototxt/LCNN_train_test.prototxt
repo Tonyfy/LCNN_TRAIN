@@ -5,10 +5,9 @@ layer {
   top: "data"
   top: "label"
   data_param{
-	  source: "lmdb/CASIA494414_train_lmdb"
+	  source: "lmdb_0start/casia494414_train0start_lmdb"
 	  backend: LMDB
-	  batch_size: 64
-	}
+	  batch_size: 16	}
   transform_param {
     scale: 0.00390625
     crop_size: 128
@@ -23,9 +22,9 @@ layer {
   top: "data"
   top: "label"
   data_param{
-	  source: "lmdb/CASIA22280_val_lmdb"
+	  source: "lmdb_0start/casia22280_val0start_lmdb"
 	  backend: LMDB
-	  batch_size: 10
+	  batch_size: 2
 	}
   transform_param {
     scale: 0.00390625
@@ -37,10 +36,16 @@ layer {
 layer{
   name: "conv1"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "data"
+  top: "conv1"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param {
      num_output: 96
      kernel_size: 5
@@ -54,8 +59,6 @@ layer{
         value: 0.1
         }
     }
-    bottom: "data"
-    top: "conv1"
 }
 layer{
   name: "slice1"
@@ -92,10 +95,16 @@ layer{
 layer{
   name: "conv2a"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "pool1"
+  top: "conv2a"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param {
      num_output: 96
      kernel_size: 1
@@ -108,8 +117,6 @@ layer{
        value: 0.1
     }
   }
-  bottom: "pool1"
-  top: "conv2a"
 }
 layer{
   name: "slice2a"
@@ -135,10 +142,16 @@ layer{
 layer{
   name: "conv2"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "eltwise2a"
+  top: "conv2"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param {
      num_output: 192
      kernel_size: 3
@@ -152,8 +165,7 @@ layer{
      value: 0.1
     }
   }
-  bottom: "eltwise2a"
-  top: "conv2"
+
 }
 layer{
   name: "slice2"
@@ -190,10 +202,16 @@ layer{
 layer{
   name: "conv3a"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "pool2"
+  top: "conv3a"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param {
      num_output: 192
      kernel_size: 1
@@ -206,8 +224,6 @@ layer{
       value: 0.1
     }
   }
-  bottom: "pool2"
-  top: "conv3a"
 }
 layer{
   name: "slice3a"
@@ -233,10 +249,16 @@ layer{
 layer{
   name: "conv3"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "eltwise3a"
+  top: "conv3"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param {
      num_output: 384
      kernel_size: 3
@@ -250,8 +272,6 @@ layer{
      value: 0.1
     }
   }
-  bottom: "eltwise3a"
-  top: "conv3"
 }
 layer{
   name: "slice3"
@@ -288,10 +308,16 @@ layer{
 layer{
   name: "conv4a"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "pool3"
+  top: "conv4a"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param{
     num_output: 384
     kernel_size: 1
@@ -304,8 +330,6 @@ layer{
       value: 0.1    
     }
   }
-  bottom: "pool3"
-  top: "conv4a"
 }
 layer{
   name: "slice4a"
@@ -330,10 +354,16 @@ layer{
 layer{
   name: "conv4"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "eltwise4a"
+  top: "conv4"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param{
     num_output: 256
     kernel_size: 3
@@ -347,8 +377,6 @@ layer{
       value: 0.1    
     }
   }
-  bottom: "eltwise4a"
-  top: "conv4"
 }
 layer{
   name: "slice4"
@@ -374,10 +402,16 @@ layer{
 layer{
   name: "conv5a"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "eltwise4"
+  top: "conv5a"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param{
     num_output: 256
     kernel_size: 1
@@ -390,8 +424,6 @@ layer{
       value: 0.1    
     }
   }
-  bottom: "eltwise4"
-  top: "conv5a"
 }
 layer{
   name: "slice5a"
@@ -416,10 +448,16 @@ layer{
 layer{
   name: "conv5"
   type: "Convolution"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "eltwise5a"
+  top: "conv5"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   convolution_param{
     num_output: 256
     kernel_size: 3
@@ -433,8 +471,6 @@ layer{
       value: 0.1    
     }
   }
-  bottom: "eltwise5a"
-  top: "conv5"
 }
 layer{
   name: "slice5"
@@ -472,10 +508,16 @@ layer{
 layer{
   name: "fc1"
   type: "InnerProduct"
-  #blobs_lr: 1
-  #blobs_lr: 2
-  #weight_decay: 1
-  #weight_decay: 0
+  bottom: "pool4"
+  top: "fc1"
+  param{
+      lr_mult:1
+	  decay_mult:1
+  }
+  param{
+      lr_mult:2
+	  decay_mult:0
+  }
   inner_product_param {
         num_output: 512
         weight_filler {
@@ -486,8 +528,6 @@ layer{
       value: 0.1
     }
   }  
-  bottom: "pool4"
-  top: "fc1"
 }
 layer{
   name: "slice_fc1"
@@ -546,7 +586,7 @@ layer{
 
 layer{
   name: "accuracy"
-  type: ACCURACY
+  type: "Accuracy"
   bottom: "prob"
   bottom: "label"
   top: "accuracy"
@@ -554,7 +594,7 @@ layer{
 
 layer{
   name: "loss"
-  type: "Softmax_Loss"
+  type: "SoftmaxWithLoss"
   bottom: "fc2"
   bottom: "label"
   loss_weight: 1 
