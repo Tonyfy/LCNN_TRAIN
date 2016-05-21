@@ -16,6 +16,23 @@ description: 训练LCNN。
 
 CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.html)申请。
 
+### 预处理
+
+获得CASIA-Webface数据集之后，使用[tools](https://github.com/Tonyfy/LCNN_TRAIN/tree/master/tools)中的：
+
+* 脚本`addLabeltopic.py`将图片的label置为0-10574，并将label加入图片的名字中，如`0_001.jpg`。
+* 脚本`getallfilesInOnedir.py`将所有图片复制到某一级目录下，如image/
+* 使用code_point中的工具对人脸图片进行标点，其中bbox.txt中指定了固定的人脸位置。
+* 可使用show_resulr.m脚本对标点结果进行可视化。
+* 根据每个图片样本的标点信息将人脸进行旋转和裁剪，使得样本标准化。
+经过上述操作，可以得到10575人的494414张标准化人脸图块。
+
+### 使用caffe，训练模型
+
+* 生成lmdb数据
+* 编写train_test.prototxt和solver.prototxt
+* 开始训练！
+
 ## 网络配置
 
 详细配置查看查看我的github项目中[prototxt/](https://github.com/Tonyfy/LCNN_TRAIN/tree/master/prototxt)中的[LCNN_solver.prototxt](https://github.com/Tonyfy/LCNN_TRAIN/blob/master/prototxt/LCNN_solver.prototxt)和[LCNN_train_test.prototxt](https://github.com/Tonyfy/LCNN_TRAIN/blob/master/prototxt/LCNN_train_test.prototxt)。
@@ -41,9 +58,9 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 |183|96.7|96.8333|96.7667|
 |196.5|96.9333|96.9667|96.95|
 |206|96.7333|96.8333|96.7833|
+|240|96.8667|96.8667|96.8667|
 |260|96.7667|96.8333|96.8|
 
 ## 计算环境
 
 NVIDIA GTX970 
-
