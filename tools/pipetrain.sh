@@ -1,4 +1,4 @@
-#训练model的流程
+#训练model的流程，适合有间断的训练，可以自动使用snapshot中最新的solverstate继续训练。
 #1，从./snapshot中寻找日期最晚的一个*.solverstate
 #2，caffe train的命令  加载上述solverstate 并进行训练
 
