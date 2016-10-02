@@ -53,4 +53,9 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 
 ## 计算环境
 
-NVIDIA GTX970 
+NVIDIA GTX970 -->GTX1070
+
+## 常见应用
+
+在人脸验证环节取得较高准确率之后，可基于此开发刷脸签到和视频监控等应用程序，如!(《手把手教你开发基于深度学习的人脸识别【考勤/签到】系统》)(http://blog.csdn.net/shixiangyun2/article/details/51585004).
+
