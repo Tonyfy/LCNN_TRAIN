@@ -30,6 +30,21 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 对学习率的设置
 初始学习率设置为0.01，训练过程中，发现初始loss为9.3，约为-log(1/10575)正常，稍加训练后，loss上升到80+，说明学习率设置过大，调整为0.001，并以inv方式进行衰减。发现loss逐渐衰减了。
 
+当然这里的设置可以依次尝试｛0.1，0.03，0.01，0.003，0.001，..｝，选择训练不会出现发散的学习率进行初始化。一般来讲，batchsize越大，初始的学习率可以大一些。
+
+## 训练记录
+
+训练过程中，根据log信息解析到train_loss,  test accurate 等变化。绘制如下。
+（batch size:64 ，mirror，初始lr:0.01）
+
+![train loss-iter][train-loss-iter]
+![test accurate-iter][test-accu-iter]
+
+[train-loss-iter]:accurate/LCNN_trainloss_iter.png
+[test-accu-iter]:accurate/LCNN_testaccu_iter.png
+
+根据检测曲线判定模型收敛到稳定的性能。
+
 ## 测试记录
 
 测试数据集：[lfw](http://vis-www.cs.umass.edu/lfw/)。取官方给出的[pairs.txt](http://vis-www.cs.umass.edu/lfw/pairs.txt)进行测试。保证pairs.txt中的图片不会出现在训练集中。
@@ -41,16 +56,17 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 
 使用pairs.txt中给出的6000对人脸对测试本模型的准确度。按照标准的ROC评测方案，并在True Positive Rate与False Reject Rate相当时，取出准确率用于表征模型的准确率。将不同迭代次数时的测试结果记录在下表中。
 
-|迭代次数(万)|True Positive Rate(%)|False Reject Rate(%)|Average(%)|
-|---|---|---|---|
-|115|96.2|96.2|96.2|
-|165|96.8333|96.8667|96.85|
-|183|96.7|96.8333|96.7667|
-|196.5|96.9333|96.9667|96.95|
-|206|96.7333|96.8333|96.7833|
-|240|96.8667|96.8667|96.8667|
-|260|96.7667|96.8333|96.8|
+|model|EER(%)|th|err_num(pairs)|
+|----|----|----|----|
+|iter_3560000|97.6|0.2905|146|
+
+
+部分判断错误的人脸pair 如下图所示
+![showerr][err]
+[err]:accurate/showerr.png
+
+
 
 ## 计算环境
 
-NVIDIA GTX970 
+NVIDIA GTX1070

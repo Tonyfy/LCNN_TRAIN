@@ -7,7 +7,7 @@ layer {
   data_param{
 	  source: "lmdb_0start/casia494414_train0start_lmdb"
 	  backend: LMDB
-	  batch_size: 16	}
+	  batch_size: 64	}
   transform_param {
     scale: 0.00390625
     crop_size: 128
@@ -24,7 +24,7 @@ layer {
   data_param{
 	  source: "lmdb_0start/casia22280_val0start_lmdb"
 	  backend: LMDB
-	  batch_size: 2
+	  batch_size: 8
 	}
   transform_param {
     scale: 0.00390625
