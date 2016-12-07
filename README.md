@@ -12,7 +12,7 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 
 * 脚本`addLabeltopic.py`将图片的label置为0-10574，并将label加入图片的名字中，如`0_001.jpg`。
 * 脚本`getallfilesInOnedir.py`将所有图片复制到某一级目录下，如image/
-* 使用code_point中的工具对人脸图片进行标点，其中bbox.txt中指定了固定的人脸位置。
+* 使用code_point中的工具对人脸图片进行标点，其中bbox.txt中指定了固定的人脸位置，固定face bounding box 是(65 178 78 191)。
 * 可使用show_resulr.m脚本对标点结果进行可视化。
 * 根据每个图片样本的标点信息将人脸进行旋转和裁剪，使得样本标准化。
 经过上述操作，可以得到10575人的494414张标准化人脸图块。
@@ -70,3 +70,7 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 ## 计算环境
 
 NVIDIA GTX1070
+
+## 常见应用
+
+在人脸验证环节取得较高准确率之后，可基于此开发刷脸签到和视频监控等应用程序，如[《手把手教你开发基于深度学习的人脸识别【考勤/签到】系统》](http://blog.csdn.net/shixiangyun2/article/details/51585004).
