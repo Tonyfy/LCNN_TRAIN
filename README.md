@@ -24,6 +24,8 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 * 开始训练！
 
 ## 网络配置
+ 
+网络结构可以在此[可视化](http://ethereon.github.io/netscope/#/gist/c64671dc9359cc82c8baa02b1e1e5ec5)。
 
 详细配置查看查看我的github项目中[prototxt/](https://github.com/Tonyfy/LCNN_TRAIN/tree/master/prototxt)中的[LCNN_solver.prototxt](https://github.com/Tonyfy/LCNN_TRAIN/blob/master/prototxt/LCNN_solver.prototxt)和[LCNN_train_test.prototxt](https://github.com/Tonyfy/LCNN_TRAIN/blob/master/prototxt/LCNN_train_test.prototxt)。
 
