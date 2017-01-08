@@ -540,7 +540,7 @@ layer{
   top: "slice_fc1_2"
 }
 layer{
-  name: "etlwise_fc1"
+  name: "eltwise_fc1"
   type: "Eltwise"
   bottom: "slice_fc1_1"
   bottom: "slice_fc1_2"
