@@ -45,6 +45,18 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 
 根据检测曲线判定模型收敛到稳定的性能。
 
+## 模型部署
+
+### python
+
+参考```demo/demo.py```，输入标准化之后的人脸，进行特征提取。
+
+通过LCNN模型提取出```demo/lxl.png```人脸的特征是256维的高维向量，分布在-9.50408到12.8354之间。实际模型提取的特征大致在-15到20的范围之间，后续即可使用该特征完成 人脸验证和人脸识别等任务。
+
+![f][f]
+[f]:demo/f.jpg
+
+
 ## 测试记录
 
 测试数据集：[lfw](http://vis-www.cs.umass.edu/lfw/)。取官方给出的[pairs.txt](http://vis-www.cs.umass.edu/lfw/pairs.txt)进行测试。保证pairs.txt中的图片不会出现在训练集中。

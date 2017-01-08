@@ -511,7 +511,7 @@ layer{
   top: "slice_fc1_2"
 }
 layer{
-  name: "etlwise_fc1"
+  name: "eltwise_fc1"
   type: "Eltwise"
   bottom: "slice_fc1_1"
   bottom: "slice_fc1_2"
@@ -519,38 +519,4 @@ layer{
   eltwise_param {
      operation: MAX
   }
-}
-
-layer{
-  name: "drop1"
-  type: "Dropout"
-  dropout_param{
-     dropout_ratio: 0.75
-  }
-  bottom: "eltwise_fc1"
-  top: "eltwise_fc1"
-}
-layer{
-  name: "fc2"
-  type: "InnerProduct"
-
-  inner_product_param{
-     num_output: 10575
-    weight_filler {
-       type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.1
-    }
-  }
-  bottom: "eltwise_fc1"
-  top: "fc2"
-}
-
-layer {
-  name: "softmax"
-  type: "Softmax"
-  bottom: "fc2"
-  top: "prob"
 }
