@@ -12,8 +12,8 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 
 * 脚本`addLabeltopic.py`将图片的label置为0-10574，并将label加入图片的名字中，如`0_001.jpg`。
 * 脚本`getallfilesInOnedir.py`将所有图片复制到某一级目录下，如image/
-* 使用code_point中的工具对人脸图片进行标点，其中bbox.txt中指定了固定的人脸位置，固定face bounding box 是(65 178 78 191)。
-* 可使用show_resulr.m脚本对标点结果进行可视化。
+* 使用`code_point`中的工具对人脸图片进行标点，其中bbox.txt中指定了固定的人脸位置，固定face bounding box 是(65 178 78 191)。
+* 可使用`show_result.m`脚本对标点结果进行可视化。
 * 根据每个图片样本的标点信息将人脸进行旋转和裁剪，使得样本标准化。
 经过上述操作，可以得到10575人的494414张标准化人脸图块。
 
@@ -30,9 +30,7 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 详细配置查看查看我的github项目中[prototxt/](https://github.com/Tonyfy/LCNN_TRAIN/tree/master/prototxt)中的[LCNN_solver.prototxt](https://github.com/Tonyfy/LCNN_TRAIN/blob/master/prototxt/LCNN_solver.prototxt)和[LCNN_train_test.prototxt](https://github.com/Tonyfy/LCNN_TRAIN/blob/master/prototxt/LCNN_train_test.prototxt)。
 
 对学习率的设置
-初始学习率设置为0.01，训练过程中，发现初始loss为9.3，约为-log(1/10575)正常，稍加训练后，loss上升到80+，说明学习率设置过大，调整为0.001，并以inv方式进行衰减。发现loss逐渐衰减了。
-
-当然这里的设置可以依次尝试｛0.1，0.03，0.01，0.003，0.001，..｝，选择训练不会出现发散的学习率进行初始化。一般来讲，batchsize越大，初始的学习率可以大一些。
+初始学习率设置可以依次尝试｛0.1，0.03，0.01，0.003，0.001，..｝，选择训练不会出现发散的学习率进行初始化。一般来讲，batchsize越大，初始的学习率可以大一些。
 
 ## 训练记录
 
