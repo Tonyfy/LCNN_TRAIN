@@ -10,27 +10,28 @@ Created on Fri May 15 11:06:53 2015
 import os
 import string
 import random
-import h5py
 import numpy as np
-import pytoml as toml
 import shutil
+import sys
+
+Root = os.path.join(os.getcwd(),sys.argv[1])
+outRoot = os.path.join(os.getcwd(),sys.argv[2])
 
 def allset2TrainandVal():
-    Root=r"F:\code_point\processCASIA\CASIAintolabels" 
-    outRoot=r"F:\code_point\processCASIA\CASIAtoCaffe"
+    # Root=r"F:\code_point\processCASIA\CASIAintolabels" 
+    # outRoot=r"F:\code_point\processCASIA\CASIAtoCaffe"
     newDIR=outRoot
     if(not(os.path.exists(newDIR))):
         os.mkdir(newDIR)
     inputPartSet=Root   
-    outValPartSet="%s%s"%(newDIR,'/valSET')      ##E:\teamPro\DeepID\lmdb\allpart60/part29/valSET
+    outValPartSet = newDIR    
 
     foldername = os.listdir(inputPartSet)
     xx=0
-    for i in foldername:        #2131
-        folder = "%s\%s"%(inputPartSet,i)    #E:\teamPro\DeepID\lmdb\allpart60\29/2131
-        if(not(os.path.exists(outValPartSet))):
-            os.mkdir(outValPartSet)
-        newfolder = "%s\%s"%(outValPartSet,string.atoi(i)+xx)         #E:\teamPro\DeepID\lmdb\allpart60/part29/valSET/2131
+    for i in foldername:        
+        folder = "%s\%s"%(inputPartSet,i)    
+
+        newfolder = "%s\%s"%(outValPartSet,string.atoi(i)+xx)         
 
         if(not(os.path.exists(newfolder))):
             os.mkdir(newfolder)
@@ -43,4 +44,5 @@ def allset2TrainandVal():
             dstvalpic="%s\%s"%(newfolder,pics[index])
             shutil.copy(srcpic,dstvalpic)  #val集合只是train集合的子集，
         print i
+
 allset2TrainandVal()
