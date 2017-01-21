@@ -1,6 +1,6 @@
 ## 目标
 
-训练论文"A Lightened CNN for Deep Face Representation"中的caffe网络。
+训练论文"A Lightened CNN for Deep Face Representation"中的网络。
 
 ## 数据
 
