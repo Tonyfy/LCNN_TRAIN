@@ -1,4 +1,6 @@
 # coding:utf-8
+# FACE verifycation by this model
+
 import os
 import numpy as np
 import cv2
@@ -48,3 +50,22 @@ else:
 plt.suptitle(jurgeanswer)
 #plt.show()
 plt.savefig("f.jpg")
+
+conv1 = net.blobs['conv1'].data  # shape {1,96,128,128} nchw
+
+channel = conv1.shape[1]
+showW = int(np.ceil(np.sqrt(channel)))
+for j in range(0, showW):
+    for k in range(0, showW):
+        if j * showW + k >= channel:
+            break;
+        else:
+            conv1img = conv1[0, j * showW + k, :, :]
+            min = np.ndarray.min(conv1img)
+            max = np.ndarray.max(conv1img)
+            conv1img = (conv1img - min) / (max - min)
+            conv1img = conv1img * 255
+            plt.subplot(showW, showW, j * showW + k + 1)
+            plt.axis('off')
+            plt.imshow(conv1img * 255.0, cmap='gray', interpolation='nearest')
+plt.show()
