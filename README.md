@@ -62,8 +62,10 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 ## 特征可视化
 
 从网络底部输入人脸图像后，可以从卷积层取出提取到的特征图（feature map）。如下图所示，分别为从conv1,conv2,conv3,conv5 提取到的人脸特征。可见，前几层卷积层提取到一些边缘、方向、纹理等浅层特征。而随着深度的增加，特征图可解释性明显降低，此时已经提取到更加复杂的特征。
+
 ![fin1][fin1]
 ![fin2][fin2]
+
 [fin1]:demo/feature_in_net1.jpg
 [fin2]:demo/feature_in_net2.jpg
 
