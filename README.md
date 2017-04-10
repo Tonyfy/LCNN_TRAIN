@@ -56,6 +56,7 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 ![f][f]  
 ---------------
 ![f1][f1]
+
 [f]:demo/f.jpg 
 [f1]:demo/f1.jpg
 
@@ -66,6 +67,7 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 ![fin1][fi1]
 ---------------
 ![fin2][fi2]
+
 [fi1]:demo/feature_in_net1.jpg
 [fi2]:demo/feature_in_net2.jpg
 
@@ -87,10 +89,12 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 在lfw上测试的roc曲线为：
 
 ![lfw-roc][roc]
+
 [roc]:accurate/lfw-roc.jpg
 
 部分判断错误的人脸pair 如下图所示
 ![showerr][err]
+
 [err]:accurate/showerr.png
 
 
