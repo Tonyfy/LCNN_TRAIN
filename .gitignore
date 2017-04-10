@@ -1,2 +1,3 @@
 .ipy*
-
+.idea
+demo/.idea/*

@@ -1,21 +1,19 @@
 net: "LCNN_train_test.prototxt"
 
-test_iter: 2500
-test_interval: 1000
+test_iter: 1393     # 1393*16(batchsize)>22280
+test_interval: 7726  # 7726*64（batchsize）>494414
 test_compute_loss: true
 
-base_lr: 0.01
-#base_lr: 0.00005
+base_lr: 0.001
 momentum: 0.9
-weight_decay: 0.00005
+weight_decay: 0.0005
 lr_policy: "inv"
-#lr_policy: "fixed"
-gamma: 0.000005
+gamma: 0.00005
 power: 0.75
 
-display: 100
+display: 1000
 max_iter: 5000000
-snapshot: 10000
+snapshot: 100000
 snapshot_prefix: "snapshot/"
 
 solver_mode: GPU

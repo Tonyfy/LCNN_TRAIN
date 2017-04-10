@@ -24,7 +24,7 @@ layer {
   data_param{
 	  source: "lmdb_0start/casia22280_val0start_lmdb"
 	  backend: LMDB
-	  batch_size: 8
+	  batch_size: 16
 	}
   transform_param {
     scale: 0.00390625
@@ -71,7 +71,7 @@ layer{
   top: "slice1_2"
 }
 layer{
-  name: "etlwise1"
+  name: "eltwise1"
   type: "Eltwise"
   bottom: "slice1_1"
   bottom: "slice1_2"

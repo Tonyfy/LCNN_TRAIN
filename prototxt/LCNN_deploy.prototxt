@@ -520,3 +520,4 @@ layer{
      operation: MAX
   }
 }
+# don't need dropout when testing.
