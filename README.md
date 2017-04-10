@@ -38,10 +38,8 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 （batch size:64 ，mirror，初始lr:0.01）
 
 ![train loss-iter][train-loss-iter]
-![test accurate-iter][test-accu-iter]
 
-[train-loss-iter]:accurate/LCNN_trainloss_iter.png
-[test-accu-iter]:accurate/LCNN_testaccu_iter.png
+[train-loss-iter]:accurate/6.png
 
 根据检测曲线判定模型收敛到稳定的性能。
 
