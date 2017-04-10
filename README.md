@@ -35,7 +35,7 @@ CASIA-WebFace 可在[这里](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Data
 ## 训练记录
 
 训练过程中，根据log信息解析到train_loss,  test accurate 等变化。绘制如下。
-（batch size:64 ，mirror，初始lr:0.01）
+（batch size:64 ，mirror，初始lr:0.001）
 
 ![train loss-iter][train-loss-iter]
 
