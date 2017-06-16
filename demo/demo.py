@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import scipy 
 
 prototxt = r"../prototxt/LCNN_deploy.prototxt"
-caffemodel = r"../models/_iter_3560000.caffemodel"
+caffemodel = r"./_iter_5000000.caffemodel"
 th = 0.25
 if not os.path.isfile(caffemodel):
     print ("caffemodel not found!")
@@ -48,7 +48,7 @@ if similar_0_1>th:
 else:
     jurgeanswer = "they are not some person,with similarity of "+ str(similar_0_1)
 plt.suptitle(jurgeanswer)
-#plt.show()
+plt.show()
 plt.savefig("f.jpg")
 
 conv1 = net.blobs['conv1'].data  # shape {1,96,128,128} nchw
